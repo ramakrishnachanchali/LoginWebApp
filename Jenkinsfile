@@ -42,7 +42,7 @@ pipeline {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                     //pom = readMavenPom file: "pom.xml";
                     // Find built artifact under target folder
-                    filesByGlob = "target/*.war;
+                    filesByGlob = "target/*.war";
                     // Print some info from the artifact found
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
@@ -57,7 +57,7 @@ pipeline {
                             nexusVersion: NEXUS_VERSION,
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
-                            groupId: 'com.ranjitswain',
+                            groupId: "com.ranjitswain",
                             version: ARTIFACT_VERSION,
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
